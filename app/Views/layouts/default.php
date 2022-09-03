@@ -22,7 +22,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Groups</a>
+                        <a class="nav-link" href="<?= base_url('group') ?>">Groups</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Users</a>
@@ -35,6 +35,8 @@
     <?= $this->renderSection('content') ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <?= $this->renderSection('custom-scripts') ?>
 </body>
 
 </html>

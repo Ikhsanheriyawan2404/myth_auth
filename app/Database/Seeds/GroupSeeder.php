@@ -23,12 +23,10 @@ class GroupSeeder extends Seeder
         $permissions = new PermissionModel();
         $superadmin = $permissions->findAll();
         foreach ($superadmin as $permission) {
-            $groups->addPermissionToGroup($permission->id, $groups->getInsertId());
+            $groups->addPermissionToGroup($permission->id, 1);
         }
 
-        $admin = $permissions->where('name', 'user-module')->findAll();
-        foreach ($admin as $permission) {
-            $groups->addPermissionToGroup($permission->id, $groups->getInsertId());
-        }
+        $admin = $permissions->where('name', 'user-module')->get()->getFirstRow();
+        $groups->addPermissionToGroup($admin->id, 2);
     }
 }
