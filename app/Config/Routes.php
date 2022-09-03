@@ -37,7 +37,10 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->resource('group');
+$routes->group('', ['filter' => 'login'], function($routes) {
+    $routes->resource('group', ['filter' => 'permission:group-module']);
+    $routes->resource('user', ['filter' => 'permission:user-module']);
+});
 
 /*
  * --------------------------------------------------------------------
